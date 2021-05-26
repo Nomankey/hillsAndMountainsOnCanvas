@@ -11,6 +11,8 @@
 
 ## The link of the project
 
+   https://nomankey.github.io/hillsAndMountainsOnCanvas/
+
 ## Used tech
 * HTML/CSS
 * JavaScript
