@@ -2,8 +2,8 @@ export class Sun {
     constructor() {
         this.radius = 150;
 
-        this.total = 60;
-        this.gap = 1 / this.total;
+        this.total = 50; //num of coordinate
+        this.gap = 1 / this.total; // ratio of coordinate
         this.originalPosition = [];
         this.position = [];
         for(let i = 0; i < this.total; i++) {
@@ -21,7 +21,7 @@ export class Sun {
         this.stageWidth = stageWidth;
         this.stageHeight = stageHeight;
 
-        this.x = this.stageWidth - this.radius - 70;
+        this.x = this.stageWidth/2;
         this.y = this.radius + 40;
     }
 
@@ -37,7 +37,7 @@ export class Sun {
         }
 
 
-        ctx.fillStyle = '#ffb200';
+        ctx.fillStyle = '#FFF192';
         ctx.beginPath();
         // ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         // ctx.fill();
@@ -48,9 +48,10 @@ export class Sun {
             ctx.lineTo(position.x + this.x, position.y + this.y)
         }
         ctx.fill();
+        ctx.globalCompositeOperation = 'destination-over';
     } 
 
-    updatePoints() {
+    updatePoints() { //randomly update coordinates on the circle
         for (let i = 0; i < this.total; i++) {
             const position = this.originalPosition[i];
             this.position[i] = {
@@ -65,7 +66,7 @@ export class Sun {
     }
 
 
-    getOriginalPoint(radius, t) {
+    getOriginalPoint(radius, t) { //a function that gets coordinates on the circle
         const theta = 2 * Math.PI * t
 
         return {
