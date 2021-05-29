@@ -48,7 +48,7 @@ export class Sun {
             ctx.lineTo(position.x + this.x, position.y + this.y)
         }
         ctx.fill();
-        ctx.globalCompositeOperation = 'destination-over';
+        ctx.globalCompositeOperation = 'destination-over'; // i did not want to use this one :(
     } 
 
     updatePoints() { //randomly update coordinates on the circle
